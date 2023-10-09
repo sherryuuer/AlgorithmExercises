@@ -14,6 +14,6 @@ strings.pop()  # O(1)
 strings.insert(0, 'x')  # O(n)
 
 # splice
-strings.insert(2, 'alien');  #O(n)
+strings.insert(2, 'alien')  # O(n)
 
 print(strings)
