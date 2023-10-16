@@ -1,0 +1,25 @@
+//If you know a solution is not far from the root of the tree:
+BFS
+right
+
+//If the tree is very deep and solutions are rare: 
+DFS!not right
+answer:
+BFS (DFS will take long.)
+
+//If the tree is very wide:
+BFS!not right
+answer:
+DFS (BFS will need too much memory.)
+
+//If solutions are frequent but located deep in the tree:
+DFS
+right,save the memory and be quick.
+
+//Determining whether a path exists between two nodes:
+BFS!not right
+DFS
+
+//Finding the shortest path:
+DFS!not right
+BFS
