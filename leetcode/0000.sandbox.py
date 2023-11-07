@@ -1,16 +1,16 @@
-s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
-# Output: ["AAAAACCCCC","CCCCCAAAAA"]
+s = "acb"
 
-
-res = []
-map = {}
-for index in range(len(s)-9):
-    substr = s[index:index+10]
-    if substr not in map:
-        map[substr] = 1
-    else:
-        map[substr] += 1
-        if map[substr] == 2:
-            res.append(substr)
-
-print(res)
+dp = [[False] * len(s) for _ in range(len(s))]
+print(dp)
+result = 0
+for i in range(len(s)-1, -1, -1): #注意遍历顺序
+    for j in range(i, len(s)):
+        if s[i] == s[j]:
+            if j - i <= 1: #情况一 和 情况二 
+                result += 1
+                dp[i][j] = True
+            elif dp[i+1][j-1]: #情况三
+                result += 1
+                dp[i][j] = True
+print(result)
+print(dp)
