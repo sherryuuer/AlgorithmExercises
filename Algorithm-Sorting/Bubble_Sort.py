@@ -42,11 +42,16 @@ def bubble_sort_ztm(array):  # O(n^2)
     for i in range(len(array) - 1):
         for j in range(len(array) - i - 1):
             # In every iteration of the outer loop, one number gets sorted. So the inner loop will run only for the unsorted part
+            # print(j)
             count += 1
             if array[j] > array[j + 1]:
+                # print((array[j], array[j + 1]))
                 array[j], array[j + 1] = array[j + 1], array[j]
-        print(array)
+            # print(array)
+        # print("---")
     return (f'{array} \nNumber of comparisons = {count}')
+# 两层嵌套，每一次都把最大的拿到了右边
+# 另一种方式也是同理，就是从最右边开始，每一轮都把最小的移动到左边
 
 
 # run it and see the numbers.
