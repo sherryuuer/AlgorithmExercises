@@ -1,34 +1,17 @@
 # Solution
-def quicksort(array, left, right):
-    if left < right:
-        pivot = right
-        partitionindex = partition(array, pivot, left, right)
-
-        quicksort(array, left, partitionindex - 1)
-        quicksort(array, partitionindex + 1, right)
-    return array
-
-
-def partition(array, pivot, left, right):
-    pivotvalue = array[pivot]
-    partitionindex = left
-
-    for i in range(left, right):
-        if array[i] < pivotvalue:
-            swap(array, i, partitionindex)
-            partitionindex += 1
-
-    swap(array, right, partitionindex)
-    return partitionindex
+# divide and conquer
+# Easy to understand
+def quicksort_simple(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]  # 选择第一个元素作为基准
+        less = [x for x in arr[1:] if x <= pivot]
+        greater = [x for x in arr[1:] if x > pivot]
+        return quicksort_simple(less) + [pivot] + quicksort_simple(greater)
 
 
-def swap(array, firstindex, secondindex):
-    temp = array[firstindex]
-    array[firstindex] = array[secondindex]
-    array[secondindex] = temp
-
-
-numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]
-
-# Select first and last index as 2nd and 3rd parameters
-print(quicksort(numbers, 0, len(numbers) - 1))
+# 示例
+arr = [3, 6, 8, 10, 1, 2, 1]
+sorted_arr = quicksort_simple(arr)
+print(sorted_arr)

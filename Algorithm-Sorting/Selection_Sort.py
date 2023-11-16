@@ -17,3 +17,24 @@ def my_selection_sort(arr):
 
 
 sorted_array = my_selection_sort(array)
+
+
+def findSmallest(array):
+    smallest = array[0]
+    smallest_index = 0
+    for i in range(1, len(array)):
+        if array[i] < smallest:
+            smallest = array[i]
+            smallest_index = i 
+    return smallest_index
+
+
+def selectionSort(array):
+    newarr = []
+    for i in range(len(array)):
+        smallest = findSmallest(array)
+        newarr.append(array.pop(smallest))
+    return newarr
+
+
+print("sort", selectionSort(array))
