@@ -1,10 +1,10 @@
 import heapq
 
 
-# x = [5, 2, 8, 1, 6, 7, 4, 9]
-# # Heapify method sorts the list , this is min heap  
-# heapq.heapify(x)
-# print(x)
+x = [5, 2, 8, 1, 6, 7, 4, 9]
+# Heapify method sorts the list , this is min heap  
+heapq.heapify(x)
+print(x)
 # heapq.heappush(x, 0)
 # print(x)
 # print(heapq.heappop(x))
@@ -12,24 +12,25 @@ import heapq
 # # Used to pop and push the element in same time
 # print(heapq.heappushpop(x, 5))
 # print(x)
-# # Used to get n largest elements in heap
+# Used to get n largest elements in heap
 # print(heapq.nlargest(4, x))
+print(heapq.nlargest(1, x))
 # # Used to get n smallest elements in heap
 # print(heapq.nsmallest(4, x))
 
-heap = []
+# heap = []
 
-# insert element
-heapq.heapify(heap)
-print(heap)
-heapq.heappush(heap, 3)
-heapq.heappush(heap, 1)
-heapq.heappush(heap, 4)
-heapq.heappush(heap, 2)
+# # insert element
+# heapq.heapify(heap)
+# print(heap)
+# heapq.heappush(heap, 3)
+# heapq.heappush(heap, 1)
+# heapq.heappush(heap, 4)
+# heapq.heappush(heap, 2)
 
-# pop min
-print(heap)
-print(heapq.heappop(heap))
+# # pop min
+# print(heap)
+# print(heapq.heappop(heap))
 
 # heapq 是 Python 标准库中的一个模块，用于实现最小堆（min-heap）和最大堆（max-heap）数据结构。每个节点的值都小于或等于（最小堆）或大于或等于（最大堆）其子节点的值。
 # heapify(iterable): 将一个可迭代对象转化为一个堆。
