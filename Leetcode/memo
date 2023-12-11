@@ -1,0 +1,42 @@
+Math 
+1-两数之和
+    leetcode 1
+    空间换时间
+2-三数之和
+    leetcode 15
+3-四数之和
+    leetcode 18
+    分治
+4-四数相加
+    leetcode 454
+5-最接近的三数之和
+    leetcode 16
+6-最大子序列和
+    leetcode 53
+    分治
+    动态规划
+    前缀和
+7-最大数
+    leetcode 179
+8-分数到小数
+    leetcode 166
+9-最大整除子集
+    leetcode 368
+10-质数排列
+    leetcode 1175
+
+
+Palindrome
+1-验证回文字符串
+    leetcode 680
+2-回文链表
+    leetcode 206 234
+3-回文数
+    leetcode 9
+4-最长回文子串
+    leetcode 5
+5-最长回文子序列
+    leetcode 516
+    动态规划
+6-超级回文
+    leetcode 906
