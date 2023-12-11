@@ -6,8 +6,28 @@
 s = "babad"
 
 
+# 双指针，中心扩展法
 def longestPal(s):
-    pass
+    n = len(s)
+    if n == 0:
+        return ""
+    res = s[0]
+
+    def extend(s, i, j, n):
+        for i in range(n):
+            if i >= 0 and j < n and s[i] == s[j]:
+                # go from center to outside
+                i -= 1
+                j += 1
+        return s[i + 1: j]
+
+    for i in range(n - 1):
+        e1 = extend(s, i, i, n)
+        e2 = extend(s, i, i + 1, n)
+
+        if max(len(e1), len(e2)) > len(res):
+            res = e1 if len(e1) > len(e2) else e2
+    return res
 
 
 answer = longestPal(s)

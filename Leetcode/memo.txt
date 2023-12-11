@@ -1,4 +1,4 @@
-Math 
+数学题Math
 1-两数之和
     leetcode 1
     空间换时间
@@ -26,7 +26,7 @@ Math
     leetcode 1175
 
 
-Palindrome
+回文题Palindrome
 1-验证回文字符串
     leetcode 680
 2-回文链表
@@ -34,9 +34,20 @@ Palindrome
 3-回文数
     leetcode 9
 4-最长回文子串
-    leetcode 5
+    leetcode 647 5
+    动态规划
 5-最长回文子序列
     leetcode 516
     动态规划
 6-超级回文
     leetcode 906
+
+
+
+动态规划五部曲：
+1，确定dp数组下标位置
+2，确定递推公式
+3，确定初始化数值
+4，确定递推顺序
+5，打印dp表格
+dp部分
