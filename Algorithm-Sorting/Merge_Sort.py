@@ -79,7 +79,7 @@ def merge(left, right):  # merge BigO = n
             result.append(right[rightindex])
             rightindex += 1
     print(left, right)
-    print(result + left[leftindex:] + right[rightindex:] )
+    print(result + left[leftindex:] + right[rightindex:])
     return result + left[leftindex:] + right[rightindex:]
 
 
