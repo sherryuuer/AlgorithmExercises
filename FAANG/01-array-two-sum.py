@@ -12,6 +12,7 @@ nums = [2, 7, 11, 15]
 target = 9
 
 
+# O(n^2)
 class Solution(object):
     def twoSum(self, nums, target):
         """
