@@ -11,7 +11,7 @@
 - 相比较暴力破解，优化解法的目的在，用思考的力量战胜放弃思考。
 - **性能优化**这件事是很常见的，在数据处理中也是，在SQL优化中也是，如果没有这种思想，那么就是不合格的工程师
 - Pythonであれば、defaultdict、OrderedDict、Counter、deque、bisect、heap、map/reduce、内包(comprehension)表記、lambda式(ソートのkeyを書くのに便利)、with表記などできるだけしっかり覚えておくとよい。
-
+- 有些问题涉及到**子问题**，这是一种教我们**分解问题，break down 问题**的思维方式
 
 ## steps:
 
@@ -45,4 +45,4 @@
 
 6. **Practice flexibility**: Exposure to different problem types will improve your ability to adapt. As you practice more problems, you'll start seeing patterns that are common across a range of problems, improving your ability to adapt quickly in an interview.
 
-Focusing on these strategies will help me approach unfamiliar problems with confidence!
+* Break down a problem into a sub problem! like the 06 problem.
