@@ -11,9 +11,11 @@
 - 不只是编码，solution也是同样的解决问题的过程，从一个大致可行的方案，到不断优化的方案，甚至最后我们自己可以创造新的方案。每一个算法都是一种思考方式！数学的每一个原理也是一个思考方式。
 - 相比较暴力破解，优化解法的目的在，用思考的力量战胜放弃思考。
 - **性能优化**这件事是很常见的，在数据处理中也是，在SQL优化中也是，如果没有这种思想，那么就是不合格的工程师
-- Pythonであれば、defaultdict、OrderedDict、Counter、deque、bisect、heap、map/reduce、内包(comprehension)表記、lambda式(ソートのkeyを書くのに便利)、with表記などできるだけしっかり覚えておくとよい。
+- Pythonであれば、**defaultdict、OrderedDict、Counter、deque、bisect、heap、map/reduce、内包(comprehension)表記、lambda式(ソートのkeyを書くのに便利)、with表記など**できるだけしっかり覚えておくとよい。
 - 有些问题涉及到**子问题**，这是一种教我们**分解问题，break down 问题**的思维方式
 - 在LinkedList问题中，似乎没有用到brute force方法，这是因为有时候**使用严谨的逻辑思考**，足够让我们得到优化的方法
+- 从QuickSort方法推出Kth最大的过程中体会到**只有理解了每个数据结构和算法的特性和细节，才能更好地灵活使用他们**
+
 
 ## steps:
 
