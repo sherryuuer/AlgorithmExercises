@@ -3,6 +3,7 @@
 
 # in fact, backtracking is a brute force + recursive solution
 # add -> decision -> remove
+# Space O(81) Time O(9!^9)
 board = [
     ["5", "3", ".", ".", "7", ".", ".", ".", "."],
     ["6", ".", ".", "1", "9", "5", ".", ".", "."],
@@ -40,10 +41,12 @@ class Solution:
                         return True
 
                     # back tracking
-                    board[r][c] = "."
                     rows[r].remove(num)
                     cols[c].remove(num)
                     boxs[(r // 3, c // 3)].remove(num)
+
+            # Reset the cell after trying all numbers and backtracking
+            board[r][c] = "."
 
         else:
             next_r, next_c = (r, c + 1) if c < 8 else (r + 1, 0)
@@ -69,8 +72,8 @@ class Solution:
                 cols[c].add(value)
                 boxs[(r // 3, c // 3)].add(value)
 
-        if self.backtracking(board, rows, cols, boxs, 0, 0):
-            return board
+        self.backtracking(board, rows, cols, boxs, 0, 0)
+        return board
 
 
 solution = Solution()
