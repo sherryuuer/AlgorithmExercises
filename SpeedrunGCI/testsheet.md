@@ -1,5 +1,3 @@
-
-
 𝐆𝐨𝐨𝐠𝐥𝐞 𝐇𝐑 𝐒𝐜𝐫𝐞𝐞𝐧𝐢𝐧𝐠
 ● What are the HTTP method are? PUT POST DELETE GET
 ● What is the time complexity of merge sort?

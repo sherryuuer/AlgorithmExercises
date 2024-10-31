@@ -22,6 +22,39 @@ prerequisites3 = [[1, 0], [2, 1], [2, 5], [0, 3], [4, 3], [3, 5], [4, 5]]
 # so we need to find out if it has cycle!!
 
 
+def bfs(numCourses, prerequisites):
+    # initial a adjlist {pre: courseList}
+    adjList = {}
+    for c in range(numCourses):
+        adjList[c] = []
+
+    for c, p in prerequisites:
+        adjList[p].append(c)
+
+    # loop for every node to check cycle
+    for p in range(numCourses):
+        queue = deque()
+        visited = set()  # this is the path
+        for nextC in adjList[p]:
+            queue.append(nextC)
+
+        while queue:
+            c = queue.popleft()
+            visited.add(c)
+            if c == p:
+                return False
+
+            for nextC in adjList[c]:
+                if nextC not in visited:
+                    queue.append(nextC)
+
+    return True
+
+
+# time O(n^3) space O(n^2 + 2n)
+print(bfs(numCourses3, prerequisites3))
+
+
 def dfs(adjList, course, path, completed):
     if course in path:
         return False
