@@ -35,7 +35,7 @@ class RequestLogger:
 2. Pattern recognition
 3. Fixed set of possibilities
 
-- **Longest Palindrome by Concatenating Two-Letter Words**
+### **Longest Palindrome by Concatenating Two-Letter Words**
 ```python
 words1 = [“ab”, “cd”, “ef”, “gh”, “ij”] # 0 distinct = 5, same = 0
 words2 = [“aa”, “bb”, “cc”, “dd”, “ee”] # 2 distinct = 0, same = 5
@@ -108,4 +108,47 @@ def longest_palindrome(words):
 
     return result + 2 if odd_word else result
 # 注意，Counter会给任何一个不存在的元素一个 0 count
+```
+
+### **Contains Duplicate**
+1. if nums is empty? return True
+2. brute force -> O(n^2)
+3. hashset -> O(n)
+4. steps:
+   - init a hashset to store nums that has been visited
+   - loop through the array, if not in hashset, add it, else return False
+   - if the loop can be finished, return True
+
+```python
+def contains_duplicate(nums):
+    if not nums:
+        return False
+
+    no_dup = set()
+
+    for n in nums:
+        if n in no_dup:
+            return True
+        no_dup.add(n)
+
+    return False
+```
+
+### **Two Sum**
+
+```python
+def two_sum(arr, t):
+    if not arr:
+        return []
+    # hashset: visited_num: index
+    visited = {}
+
+    for i, n in enumerate(arr):
+        search = t - n
+        if search in visited:
+            return [visited.get(search), i]
+
+        visited[n] = i
+
+    return []
 ```
