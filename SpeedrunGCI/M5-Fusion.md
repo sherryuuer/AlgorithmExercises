@@ -2,7 +2,7 @@
 1. Array of intervals
 2. Overlapping intervals
 
-- **Merge Intervals**
+### **Merge Intervals**
 - steps:
 - variables: result(list)
 1. loop the intervals list
@@ -36,6 +36,75 @@ def merge_intervals(intervals):
 # case = [[1, 5], [3, 7], [4, 6]]
 # result = [[1, 5]]
 ```
+
+### **Insert Interval**
+- nonoverlapping and sorted
+- steps: how I thinking
+1. at head, or at last, if not exsiting_intervals return the cur list
+2. result = []
+3. loop the list for left, right, use while
+   - target is new interval
+   - L >= left and R <= right: target = None break
+   - R < left: add target and target = None break
+   - L > right: add cur and continue
+   - others: target = [min(left, L), max(right, R)]
+
+4. return the result + exsiting_intervals[index]
+
+```python
+existing_intervals = [[1,2],[3,4],[5,8],[9,15]]
+new_interval = [2,5]
+
+def insert_interval(existing_intervals, new_interval):
+    """
+    Insert a new interval to a existing intervals list
+    without overlapping
+
+    args:
+        existing_intervals (list[list]): intervals list to be merge and insert
+        new_interval ([list]): interval to be merge and insert
+
+    return:
+        ([list[list]]): merged and inserted intervals list
+    """
+    if not existing_intervals:
+        return [new_interval]
+
+    target = new_interval
+    result = []
+    index = 0
+
+    while index < len(existing_intervals):
+        L, R = target
+        left, right = existing_intervals[index]
+
+        # no need to merge
+        if L >= left and R <= right:
+            return existing_intervals
+
+        # not overlapping and just add target
+        if R < left:
+            result.append(target)
+            break
+
+        # not overlapping
+        if L > right:
+            result.append(existing_intervals[index])
+            index += 1
+            continue
+
+        target = [min(left, L), max(right, R)]
+        index += 1
+
+    # edge case: target add to last
+    if not result or target[0] > result[-1][1]:
+        result.append(target)
+
+    return result + existing_intervals[index:]
+```
+- time: O(n), n = len(existing_intervals)
+- space: O(n) can be optimized to O(1)
+
 
 ## K-way Merge
 1. an expansion of the standard merge sort
