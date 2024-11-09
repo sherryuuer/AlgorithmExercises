@@ -124,7 +124,7 @@ def rob(root):
 - Combinations
 - Subsets
 
-**Letter Combinations of a Phone Number**
+### **Letter Combinations of a Phone Number**
 ```python
 def letter_combinations(digits):
     result = []
@@ -158,4 +158,23 @@ def letter_combinations(digits):
     path = []
     backtrack(path, result, 0)
     return result # space O(n)
+```
+
+### **Generate Parentheses**
+```python
+def helper(result, string, left, right, n):
+    if left == n and right == n:
+        result.append(string)
+        return
+
+    if left < n:
+        helper(result, string + "(", left + 1, right, n)
+    if right < left:
+        helper(result, string + ")", left, right + 1, n)
+
+
+def generate_combinations(n):
+    result = []
+    helper(result, "", 0, 0, n)
+    return result
 ```

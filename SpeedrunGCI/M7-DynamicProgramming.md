@@ -274,3 +274,99 @@ def unique_paths(m, n):
 #     [1, 1]
 # ]
 ```
+
+### **Longest Palindromic Substring**
+- length = 0, longest_string = ""
+- loop the string, with 2 pointer
+- O(n^2)
+```python
+def longest_palindromic_substring(s):
+    if not s:
+        return ""
+    length = 1
+    longest_index = [0, 0] # left, right
+
+    for i in range(len(s)):
+        # odd
+        left, right = i, i
+        while left >= 0 and right < len(s):
+            if (right - left + 1) > length and s[left] == s[right]:
+                length = right - left + 1
+                longest_index = [left, right]
+            left -= 1
+            right += 1
+
+        # even
+        left, right = i, i + 1
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            if (right - left + 1) > length:
+                length = right - left + 1
+                longest_index = [left, right]
+            left -= 1
+            right += 1
+
+    left, right = longest_index
+    return s[left: right + 1]
+
+# "babad"
+# i = 1
+# left, right = 0, 2
+# length = 3
+# longest_index = [0, 2]
+```
+
+### **Maximum Profit in Job Scheduling**
+- O(n^2) solution
+```python
+def job_scheduling(start_time, end_time, profit):
+
+    intervals = sorted(zip(start_time, end_time, profit))
+
+    def dfs(i):
+        if i == len(intervals):
+            return 0
+
+        # not include
+        res = dfs(i + 1)
+
+        # include
+        j = i
+        while j < len(intervals):
+            if intervals[j][0] >= intervals[i][1]:
+                break
+            j += 1
+
+        res = max(res, intervals[i][2] + dfs(j))
+        return res
+
+    return dfs(0)
+```
+
+- memorization solution
+```python
+def job_scheduling(start_time, end_time, profit):
+
+    intervals = sorted(zip(start_time, end_time, profit))
+    cache = {}
+
+    def dfs(i):
+        if i == len(intervals):
+            return 0
+        if i in cache:
+            return cache[i]
+
+        # not include
+        res = dfs(i + 1)
+
+        # include
+        j = i
+        while j < len(intervals): # O(n^2)
+            if intervals[j][0] >= intervals[i][1]:
+                break
+            j += 1
+
+        cache[i] = max(res, intervals[i][2] + dfs(j))
+        return cache[i]
+
+    return dfs(0)
+```
