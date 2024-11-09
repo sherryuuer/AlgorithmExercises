@@ -29,7 +29,8 @@ def smallest_missing_positive_integer(nums):
 1. Dependency relationships
 2. Ordering or sequencing
 
-**Course Schedule**
+## **Course Schedule**
+
 ```python
 prerequisites = [[1, 0], [1, 2], [3, 1], [4, 1], [1, 4], [5, 1]]
 num_courses = 6
@@ -64,3 +65,36 @@ def can_finish(num_courses, prerequisites):
     return finished == num_courses
 ```
 - all the vertices and edges are stored in a adjList and looped by once, so O(V + E)
+
+## **Course Schedule**
+
+```python
+def find_course(num_courses, prerequisites):
+	in_degress = {}
+	adj = {}
+	
+	for c in range(num_courses):
+		in_degress[c] = 0
+	for c, p in prerequisites:
+		in_degress[c] += 1
+		if p not in adj:
+			adj[p] = []
+		adj[p].append(c)
+		
+	stack = []
+	for c, d in in_degress.items():
+		if d == 0:
+			stack.append(c)
+			
+	take_courses = []
+	while stack:
+		course = stack.pop()
+		take_courses.append(course)
+		
+		for c in adj[course]:
+			in_degress[c] -= 1
+			if in_degress[c] == 0:
+			stack.append(c)
+			
+	return take_courses
+```
