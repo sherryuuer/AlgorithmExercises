@@ -50,7 +50,6 @@ and some were twisted?
 ● System Design basic concepts.
 ● Design Caching Server?
 ● Design Netflix streaming engine?
-- 设计一个HTTPWeb服务器
 
 𝐆𝐨𝐨𝐠𝐥𝐞 𝐆𝐨𝐨𝐠𝐥𝐞𝐢𝐧𝐞𝐬𝐬 + 𝐋𝐞𝐚𝐝𝐞𝐫𝐬𝐡𝐢𝐩
 ● They Check whether you are fit for the company or not.

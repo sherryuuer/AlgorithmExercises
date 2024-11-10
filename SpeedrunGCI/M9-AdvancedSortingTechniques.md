@@ -69,32 +69,28 @@ def can_finish(num_courses, prerequisites):
 ## **Course Schedule**
 
 ```python
-def find_course(num_courses, prerequisites):
-	in_degress = {}
-	adj = {}
-	
-	for c in range(num_courses):
-		in_degress[c] = 0
-	for c, p in prerequisites:
-		in_degress[c] += 1
-		if p not in adj:
-			adj[p] = []
-		adj[p].append(c)
-		
-	stack = []
-	for c, d in in_degress.items():
-		if d == 0:
-			stack.append(c)
-			
-	take_courses = []
-	while stack:
-		course = stack.pop()
-		take_courses.append(course)
-		
-		for c in adj[course]:
-			in_degress[c] -= 1
-			if in_degress[c] == 0:
-			stack.append(c)
-			
-	return take_courses
+def find_order(num_courses, prerequisites):
+    in_degress = { c: 0 for c in range(num_courses) }
+    adj = { c: [] for c in range(num_courses) }
+
+    for c, p in prerequisites:
+        in_degress[c] += 1
+        adj[p].append(c)
+
+    stack = []
+    for c, d in in_degress.items():
+        if d == 0:
+            stack.append(c)
+
+    take_courses = []
+    while stack:
+        course = stack.pop()
+        take_courses.append(course)
+
+        for c in adj[course]:
+            in_degress[c] -= 1
+            if in_degress[c] == 0:
+                stack.append(c)
+
+    return take_courses if len(take_courses) == num_courses else []
 ```
